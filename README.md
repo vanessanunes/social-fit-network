@@ -6,8 +6,11 @@
 ## O que foi usado
 
 Python
+
 FastAPI
+
 Docker
+
 PostgreSQL
 
 ## Como rodar
