@@ -3,34 +3,29 @@
 
 ## Próposito
 
-## O que foi usado
+## Requesitos
 
-Python
+- Python
+- Pipenv
+- FastAPI
+- Docker
+- PostgreSQL
 
-FastAPI
 
-Docker
+## Instalação
 
-PostgreSQL
+Estou utilizanfo o pipenv, para instalar é só executar  ``pipenv install``
+
+Se precisar instalar alguma outra biblioteca, usar ``pipenv install module_name``
+
+Copiar o arquivo ``.env-example`` utilizando o comando ``cp .env.defaults .env``
 
 ## Como rodar
 
 Instale o Docker, execute o comando: 
 
 
-``docker-compose build up ``
-
-<!-- Automaticamente, serão geradas algumas tabelas com seus respectivos campos, porém é importante rodar o migrate para atualizar essas tabelas:  -->
-
-
-<!-- ``make mock `` -->
-
-
-`` ... ``
+``docker-compose up -d --build``
 
 
 
-
-
-
-https://alelfreitas.medium.com/automatizando-a-cria%C3%A7%C3%A3o-de-tabelas-em-banco-de-dados-a7b53299db75
