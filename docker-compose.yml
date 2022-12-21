@@ -4,7 +4,7 @@ services:
   database:
     image: postgres:latest
     restart: always
-    container_name: database
+    container_name: database-network
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -16,6 +16,25 @@ services:
       - 2345:5432
     volumes:
       - ./scripts/initdb.sql:/docker-entrypoint-initdb.d/init.sql
+
+  api:
+    container_name: social-network
+    restart: always
+    build: .
+    volumes:
+      - .:/src
+    environment:
+      DEBUG: 1
+    env_file:
+      - .env
+    links:
+      - database
+    depends_on:
+      - database
+    ports:
+      - "8000:8000"
+    command: uvicorn src.main:app --host 0.0.0.0 --reload
+    working_dir: /src
 
 volumes:
   pg-data:
